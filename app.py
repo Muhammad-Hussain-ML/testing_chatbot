@@ -54,14 +54,15 @@ def chat_interface():
                 response = requests.post(API_URL, json=data, stream=True)
 
                 # Stream the response character by character
-                for char in response.iter_content(chunk_size=1):
+                for char in response.iter_content(chunk_size=1024):
                     # chunk = char.decode()
-                    try:
-                        chunk = char.decode('utf-8')  # Attempt to decode
-                    except UnicodeDecodeError:
-                        chunk = char.decode('utf-8', errors='replace')
-                    response_text += chunk
-                    response_container.markdown(response_text)
+                        if char:
+                            try:
+                                chunk = char.decode('utf-8')  # Attempt to decode
+                            except UnicodeDecodeError:
+                                chunk = char.decode('utf-8', errors='replace')
+                            response_text += chunk
+                response_container.markdown(response_text)
 
                 # Append assistant response to chat history
                 st.session_state["messages"].append({"role": "assistant", "content": response_text})
