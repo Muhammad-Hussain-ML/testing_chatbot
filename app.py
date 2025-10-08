@@ -47,7 +47,7 @@ def chat_interface():
             "query": query,
             "unique_id": unique_id,
             "history": formatted_history,
-            "end_user_id": 3243242834234
+            "end_user_id": "testing7794942"
         }
         st.write(f"\n===================\n request body : {data}\n")
         # --- END OF THE FIX ---
