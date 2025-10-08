@@ -151,10 +151,10 @@ def chat_interface():
 #             except requests.exceptions.RequestException as e:
 #                 st.error(f"Error connecting to API: {e}")
 
-# # Main block to run the Streamlit app
-# if __name__ == "__main__":
-#     # Set the page configuration (optional)
-#     st.set_page_config(page_title="Chat Interface", layout="wide")
+# Main block to run the Streamlit app
+if __name__ == "__main__":
+    # Set the page configuration (optional)
+    st.set_page_config(page_title="Chat Interface", layout="wide")
     
-#     # Call the chat interface function
-#     chat_interface()
+    # Call the chat interface function
+    chat_interface()
